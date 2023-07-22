@@ -109,27 +109,43 @@
     margin-top: 5rem;
 }
 .meaasgeContent{
-    
-    display: flex;
-    // align-items: center;
-    padding: 0.5rem;
-    img{
-        width: 24px;
-        height: 24px;
-        object-fit: cover;
-        border-radius: 50%;
-
-    }
+      display: flex;
+      padding: 0.5rem;
+    // img{
+    //     width: 24px;
+    //     height: 24px;
+    //     object-fit: cover;
+    //     border-radius: 50%;
+    // }
     p{
         margin-left:0.5rem ;
         padding:8px;
         margin-top: 0.5rem;
         background-color: white;
         width: 80%;
+        height: 100%;
         max-width: max-content;
         border-radius: 0px 12px 12px 12px;
         font-size: 0.9rem;
         color: #606060;
+        box-shadow: 0px 4px 8px 0px rgb(0,0,0, 8%) ;
+    }
+}
+.meaasgeContent-right{
+    display: flex;
+   justify-content: flex-end;
+    padding: 0.5rem;
+    p{
+        margin-left:0.5rem ;
+        padding:8px;
+        margin-top: 0.5rem;
+        background-color: #1C63D5;
+        color:white;
+        width: 80%;
+        max-width: max-content;
+        border-radius: 12px 12px 0px 12px;
+        font-size: 0.9rem;
+      
         box-shadow: 0px 4px 8px 0px rgb(0,0,0, 8%) ;
     }
 }

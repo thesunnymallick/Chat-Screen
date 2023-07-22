@@ -5,8 +5,20 @@ import Tooltip from "@mui/material/Tooltip";
 import { AiOutlineCamera, AiOutlineVideoCamera } from "react-icons/ai";
 import { HiOutlineDocumentArrowDown } from "react-icons/hi2";
 import { ThemeProvider, createTheme } from "@mui/material";
+import { useState } from "react";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 const TextInput = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleTooltipClose = () => {
+    setOpen(false);
+  };
+
+  const handleTooltipOpen = () => {
+    setOpen(true);
+  };
+
   const theme = createTheme({
     components: {
       MuiTooltip: {
@@ -42,19 +54,30 @@ const TextInput = () => {
     <div className="textInput">
       <div>
         <input type="text" placeholder="Reply to @Rohit Yadav" />
+        <ClickAwayListener onClickAway={handleTooltipClose}>
+          <span>
+            <ThemeProvider theme={theme}>
+              <Tooltip
+                title={toolTipContent()}
+                placement="top"
+                arrow
+                onClose={handleTooltipClose}
+                open={open}
+                disableFocusListener
+                disableHoverListener
+                disableTouchListener
+              >
+                <p>
+                  <ImAttachment onClick={handleTooltipOpen} />
+                </p>
+              </Tooltip>
+            </ThemeProvider>
 
-        <span>
-          <ThemeProvider theme={theme}>
-            <Tooltip title={toolTipContent()} placement="top" arrow>
-              <p>
-                <ImAttachment />
-              </p>
-            </Tooltip>
-          </ThemeProvider>
-          <p>
-            <AiOutlineSend />
-          </p>
-        </span>
+            <p>
+              <AiOutlineSend />
+            </p>
+          </span>
+        </ClickAwayListener>
       </div>
     </div>
   );
